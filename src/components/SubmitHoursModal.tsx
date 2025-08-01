@@ -110,7 +110,11 @@ const SubmitHoursModal: React.FC<SubmitHoursModalProps> = ({ projects, onClose, 
                   <input
                     type="number"
                     min="1"
-                    max="24"
+                    max={
+                      selectedProject
+                        ? projects.find((p) => p.id === selectedProject)?.expected_hours || 24
+                        : 24
+                    }
                     value={hoursCompleted}
                     onChange={(e) => setHoursCompleted(parseInt(e.target.value))}
                     className="w-full pl-12 pr-4 py-3 bg-green-50 border border-green-300 rounded-xl font-medium text-green-900 placeholder-green-400 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all duration-300"

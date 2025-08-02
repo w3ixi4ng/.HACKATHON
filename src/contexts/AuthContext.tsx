@@ -45,7 +45,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      console.log('Auth event:', event, session?.user?.email)
+
       setUser(session?.user ?? null)
       if (session?.user) {
         if (event === 'SIGNED_UP' || event === 'SIGNED_IN') {
@@ -66,7 +66,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const checkAdminStatus = async () => {
     try {
       const hasAdmins = await hasAdminUsers()
-      console.log('Admin status check:', { hasAdmins })
       setCanBecomeAdmin(!hasAdmins)
     } catch (error) {
       console.error('Error checking admin status:', error)
@@ -107,7 +106,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         throw error
       }
 
-      console.log('Profile fetched:', data)
+
       setProfile(data)
       
       // Update admin status after profile is loaded
@@ -125,7 +124,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }
 
   const signUp = async (email: string, password: string, fullName: string, makeAdmin: boolean = false) => {
-    console.log('Signing up user:', { email, fullName, makeAdmin, canBecomeAdmin })
+
     
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -141,14 +140,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     
     // If user should be admin and no admins exist, promote them
     if (makeAdmin && data.user && canBecomeAdmin) {
-      console.log('Attempting to promote user to admin:', data.user.id)
+
       try {
         // Wait for profile to be created, then promote
         setTimeout(async () => {
           try {
-            console.log('Promoting user to admin...')
+
             await promoteToAdmin(data.user!.id)
-            console.log('User promoted successfully')
+
             // Refresh profile to get updated role
             await fetchProfile(data.user!.id)
           } catch (error) {
@@ -162,7 +161,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     
     // If user is immediately confirmed (no email confirmation required)
     if (data.user && !data.user.email_confirmed_at) {
-      console.log('User created, waiting for confirmation...')
+
     }
   }
 
@@ -172,10 +171,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }
 
   const promoteUserToAdmin = async (userId: string) => {
-    console.log('Promoting user to admin:', userId)
+
     try {
       await promoteToAdmin(userId)
-      console.log('User promoted successfully')
+
       // Refresh current user's profile if they were promoted
       if (user?.id === userId) {
         await fetchProfile(userId)

@@ -76,7 +76,7 @@ The application is built using React (TypeScript) with Vite, styled with Tailwin
 
 ### Steps to Run Locally
 ```bash
-git clone https://github.com/your-username/community-service-tracker.git
+git clone https://github.com/w3ixi4ng/community-service-tracker.git
 cd community-service-tracker
 npm install
 npm run dev

@@ -29,6 +29,7 @@ The application is built using React (TypeScript) with Vite, styled with Tailwin
 ## Project Directory Structure
 
 /src
+
  ┣ /components
  ┃ ┣ Layout.tsx              → Application layout wrapper.
  ┃ ┣ Auth.tsx                 → Authentication form component.

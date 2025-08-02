@@ -29,27 +29,29 @@ The application is built using React (TypeScript) with Vite, styled with Tailwin
 ## Project Directory Structure
 
 /src
-
- ┣ /components
- ┃ ┣ Layout.tsx              → Application layout wrapper.
- ┃ ┣ Auth.tsx                 → Authentication form component.
- ┃ ┣ CreateProjectModal.tsx   → Modal for initiating new projects.
- ┃ ┣ SubmitHoursModal.tsx     → Modal for logging service hours.
- ┃ ┣ EditProjectModal.tsx     → Modal for updating project details.
- ┣ /pages
- ┃ ┣ Projects.tsx             → Browse and explore available projects.
- ┃ ┣ MyProjects.tsx           → Dashboard of a member's enrolled projects.
- ┃ ┣ Hours.tsx                → View and manage submitted service hours.
- ┃ ┣ Admin.tsx                → Administrative control panel.
- ┃ ┣ UserManagement.tsx       → Interface for managing users and roles.
- ┣ /contexts
- ┃ ┗ AuthContext.tsx          → Global authentication state provider.
- ┣ /lib
- ┃ ┗ supabase.ts              → Supabase client and helper functions.
- ┣ App.tsx                    → Main app shell.
- ┣ main.tsx                   → Entry point rendering the app.
- ┣ index.css                  → Global styles.
-
+├── components/
+│ ├── Layout.tsx # Application layout wrapper
+│ ├── Auth.tsx # Authentication form component
+│ ├── CreateProjectModal.tsx # Modal for initiating new projects
+│ ├── SubmitHoursModal.tsx # Modal for logging service hours
+│ ├── EditProjectModal.tsx # Modal for updating project details
+│
+├── pages/
+│ ├── Projects.tsx # Browse and explore available projects
+│ ├── MyProjects.tsx # Dashboard of a member's enrolled projects
+│ ├── Hours.tsx # View and manage submitted service hours
+│ ├── Admin.tsx # Administrative control panel
+│ ├── UserManagement.tsx # Interface for managing users and roles
+│
+├── contexts/
+│ └── AuthContext.tsx # Global authentication state provider
+│
+├── lib/
+│ └── supabase.ts # Supabase client and helper functions
+│
+├── App.tsx # Main app shell
+├── main.tsx # Entry point rendering the app
+└── index.css # Global styles
 ---
 
 ## Technology Stack

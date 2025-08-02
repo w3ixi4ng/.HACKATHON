@@ -76,7 +76,7 @@ The application is built using React (TypeScript) with Vite, styled with Tailwin
 
 ### Steps to Run Locally
 ```bash
-git clone https://github.com/w3ixi4ng/.HACKATHON.git
+git clone https://github.com/w3ixi4ng/SMU-Serve.git
 cd .HACKATHON
 npm install
 npm run dev
